@@ -1,0 +1,49 @@
+<div class="usa-section">
+  <div class="usa-grid">
+    <div class="usa-width-full go-back-link">
+
+        <a href="/rooms" class="" [hidden]=reserve_hide>
+          <i class="left"></i>
+          Go Back to Rooms
+        </a>
+    </div>
+    <div *ngIf="conferenceRooms">
+
+    <div class="page-header custom-page-header">
+      <div class="page-title-h2">{{conferenceRooms.roomName}}</div>
+      <span class="page-title-blurbs">{{conferenceRooms.roomNumber}}</span>
+      <span class="page-title-blurbs page-blurbs-right">Building {{conferenceRooms.buildingNumber}}</span>
+      <span class="page-title-blurbs page-blurbs-right">Max. Occupancy {{conferenceRooms.occupancy}}</span>
+    </div>
+
+    <div class="usa-width-two-thirds">
+      <h4 class="calendar-date">{{today | date}}</h4>
+
+       <table class="usa-table-borderless table-reservations">
+        <thead>
+          <tr class="table-first-row">
+            <th scope="col">Time</th>
+            <th scope="col">Conference</th>
+            <th scope="col">Reserved By</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of Reservations">
+          <tr>
+            <td data-label="Time">{{item.startTime|date:"hhmm"}} - {{item.stopTime|date:"hhmm"}}</td>
+            <td data-label="Conference">{{item.title}}</td>
+            <td data-label="Reserved By">{{item.lastName}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="usa-button" [hidden]="reserve_hide" (click)="openMakeReservationDialog(conferenceRooms.id)">Make a reservation</button>
+
+    </div>
+    <div class="usa-width-one-third right-sidebar">
+      <h3 class="side-panel-title">AV Equipment</h3>
+      <ul *ngFor="let avEquipment of conferenceRooms['avEquipment'];let isLast=last">
+        <li>{{avEquipment.title}}{{isLast ? '' : ', '}}</li>
+      </ul>
+  </div>
+  </div>
+</div>
+</div>

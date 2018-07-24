@@ -1,0 +1,58 @@
+.usa-header {
+  background-color: #112e51;
+
+  .usa-logo-text a {
+    color: white;
+  }
+
+  .usa-nav {
+    .usa-nav-link:hover {
+      // color: white;
+
+      span {
+        border-bottom: 0.4rem solid #9bdaf1 !important;
+        padding-bottom: 0.6rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 951px) {
+
+  .usa-nav-container {
+    height: 8rem;
+
+    .usa-navbar {
+      height: 6rem;
+    }
+
+    .usa-nav {
+      padding-top: 2rem;
+    }
+  }
+
+  .usa-logo-text a {
+    font-size: 3.2rem;
+  }
+
+  .usa-nav {
+    background-color: transparent;
+
+    .usa-nav-link:hover {
+      color: white;
+    }
+
+    .usa-nav-link {
+      color: #e1f3f8;
+    }
+
+    .usa-nav-submenu {
+      background-color: #205493;
+    }
+  }
+
+  .usa-nav-primary button[aria-expanded=true] {
+    background-color: #205493;
+  }
+
+}

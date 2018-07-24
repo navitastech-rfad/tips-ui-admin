@@ -1,0 +1,148 @@
+.custom-page-header {
+  margin: 45px 0 40px 0;
+  padding-bottom: 9px;
+  font-family: 'Merriweather';
+  font-weight: 700;
+}
+
+.page-title-h2 {
+  font-size: 3rem;
+  display: inline-block;
+}
+
+.page-title-blurbs {
+  font-size: 15px;
+  color: #5b616b;
+}
+
+.page-blurbs-right {
+  float: right; 
+  line-height: 48px;
+}
+
+.page-blurbs-right:last-of-type {
+  padding-right: 30px;
+}
+
+.calendar-date {
+  color: #5b616b;
+  text-align: center;
+  margin: 15px 0 15px 0;
+}
+
+.table-reservations {
+  width: 100%;
+}
+
+// This prevents a Top Border above the table headers (Time, Conference & Reserved By)
+.table-first-row {
+  border-top: none !important;
+}
+
+.go-back-link {
+  font-size: 13px;
+  float: left;
+  margin-top: -60px;
+  line-height: 15px;
+}
+
+.go-back-link a, a:visited {
+  color: #0066b4;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+i {
+  border: solid #0066b4;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+@media screen and (max-width: 600px) {
+
+  .go-back-link {
+    margin-top: -40px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+
+  // Sets attributes of responsive table at screen resolution less than 850px wide
+
+  table {
+    border: 0 !important;
+    margin: 20px 0 20px 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-top: 3px solid #2d2d2d;
+    border-bottom: 3px solid #2d2d2d;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.9em;
+    text-align: right;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .page-title-h2 {
+    font-size: 3rem;
+    display: block;
+  }
+
+  .page-title-blurbs {
+    display: inline-block;
+    font-size: 13px;
+    margin: -20px 0 0 0;
+    line-height: 20px;
+  }
+  
+  .page-blurbs-right {
+    display: inline-block;
+    float: none;
+  }
+
+  .page-blurbs-right::before {
+    content: "|";
+    padding: 0 10px 0 5px;
+  }
+  
+  .page-blurbs-right:last-of-type {
+    padding-right: 0px;
+  }
+
+}

@@ -1,0 +1,27 @@
+<div id="main-content" class="main-content">
+  <div class="usa-section">
+    <div class="usa-grid">
+      <form class="usa-form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <fieldset>
+          <legend class="usa-drop_text">Sign in</legend>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocapitalize="off" autocorrect="off" [(ngModel)]="model.username" #username="ngModel" required>
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="password-sign-in">Password</label>
+            <input id="password-sign-in" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
+            <p class="usa-form-note">
+              <a title="Show password" href="javascript:void(0);" class="usa-show_password" aria-controls="password-sign-in">Show password</a>
+            </p>
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+          </div>
+          <div class="form-group">
+              <input type="submit" (click)="login()" value="Sign in">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

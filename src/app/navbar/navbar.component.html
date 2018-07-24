@@ -1,0 +1,87 @@
+
+<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+<header class="usa-header usa-header-basic" role="banner">
+  <div class="usa-banner">
+    <div class="usa-accordion">
+      <header class="usa-banner-header">
+        <div class="usa-grid usa-banner-inner">
+          <img src="assets/uswds/img/favicons/favicon-57.png" alt="U.S. flag">
+          <p>An official website of the United States government</p>
+          <button class="usa-accordion-button usa-banner-button"
+            aria-expanded="false" aria-controls="gov-banner">
+          <span class="usa-banner-button-text">Here's how you know</span>
+          </button>
+        </div>
+      </header>
+      <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
+        <div class="usa-banner-guidance-gov usa-width-one-half">
+          <img class="usa-banner-icon usa-media_block-img" src="/assets/uswds/img/icon-dot-gov.svg" alt="Dot gov">
+          <div class="usa-media_block-body">
+            <p>
+              <strong>The .gov means it’s official.</strong>
+              <br>
+              Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner-guidance-ssl usa-width-one-half">
+          <img class="usa-banner-icon usa-media_block-img" src="/assets/uswds/img/icon-https.svg" alt="Https">
+          <div class="usa-media_block-body">
+            <p>
+              <strong>The site is secure.</strong>
+              <br>
+              The <strong>https://</strong> ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo" id="basic-logo">
+        <em class="usa-logo-text">
+        <a href="/"
+          title="Home"
+          aria-label="Home">
+          Get a Room
+        </a>
+        </em>
+      </div>
+      <button class="usa-menu-btn" [hidden]=nav_hide>Menu</button>
+    </div>
+    <nav role="navigation" class="usa-nav" [hidden]=nav_hide>
+      <button class="usa-nav-close">
+      <img src="/assets/uswds/img/close.svg" alt="close">
+      </button>
+      <ul class="usa-nav-primary usa-accordion">
+        <li *ngIf="role == 'Administrator' || role == 'Reservation Manager'">
+          <a class="usa-nav-link" href="/rooms">
+          <span>Rooms</span>
+          </a>
+        </li>
+        <li *ngIf="role == 'Administrator' || role == 'Reservation Manager'">
+          <a class="usa-nav-link" href="/reports">
+          <span>Reports</span>
+          </a>
+        </li>
+        <li *ngIf="role == 'Administrator'">
+          <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="basic-nav-section-two">
+          <span>Admin</span>
+          </button>
+          <ul id="basic-nav-section-two" class="usa-nav-submenu" aria-hidden="true">
+            <li>
+              <a href="/admin/users">Users</a>
+            </li>
+            <li>
+              <a href="/admin/rooms">Rooms</a>
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="role == 'Administrator' || role == 'Reservation Manager' || role == 'Requestor'">
+          <button class="usa-accordion-button usa-nav-link" (click)=logout()>Logout</button>
+      </ul>
+    </nav>
+  </div>
+</header>
