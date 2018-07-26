@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginpageComponent } from './loginpage/loginpage.component';
+import { CaseListComponent } from './case-list/case-list.component';
 // import { AuthGuard } from './_guards/index';
 // import { AdminComponent } from './admin/admin.component';
 // import { PanelComponent } from './panel/panel.component';
@@ -11,6 +12,8 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginpageComponent },
+  { path: 'caselist', component: CaseListComponent},
+
   // { path: '', component: ViewConferenceRoomsComponent, canActivate: [AuthGuard]},
   // { path: 'panels/:id', component: PanelComponent},
   // { path: 'rooms', component: ViewConferenceRoomsComponent, canActivate: [AuthGuard]},

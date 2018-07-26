@@ -24,7 +24,7 @@ import { HttpModule } from '@angular/http';
 // import { MatIconModule } from '@angular/material/icon';
 // import { MatRadioModule } from '@angular/material/radio';
 // import { MatSnackBarModule } from '@angular/material/snack-bar';
-// import { MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 // import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { UserService } from './_services/user.service';
@@ -34,6 +34,7 @@ import { ReserveConferenceRoomService } from './_services/reserve-conference-roo
 
 // import { AuthGuard } from './_guards/index';
 import { PanelComponent } from './panel/panel.component';
+import { CaseListComponent } from './case-list/case-list.component';
 // import { NewUserModalComponent } from './admin-modal/new-user-modal.component';
 // import { ViewConferenceRoomsComponent } from './view-conference-rooms/view-conference-rooms.component';
 // import { AdminRoomsComponent } from './admin-rooms/admin-rooms.component';
@@ -48,6 +49,7 @@ import { PanelComponent } from './panel/panel.component';
     FooterComponent,
     LoginpageComponent,
     PanelComponent,
+    CaseListComponent
     // NewUserModalComponent,
     // ViewConferenceRoomsComponent,
     // AdminRoomsComponent,
@@ -64,7 +66,6 @@ import { PanelComponent } from './panel/panel.component';
     MatNativeDateModule,
     HttpModule,
     ReactiveFormsModule,
-
     MatButtonModule,
     MatCardModule,
     // MatCheckboxModule,
@@ -75,7 +76,7 @@ import { PanelComponent } from './panel/panel.component';
     MatInputModule,
     // MatRadioModule,
     // MatSnackBarModule,
-    // MatTableModule,
+    MatTableModule,
     // MatTooltipModule,
     MatSelectModule,
     MatDatepickerModule

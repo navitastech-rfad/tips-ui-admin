@@ -31,7 +31,7 @@ export class LoginpageComponent implements OnInit {
           this.error = 'Username or password is incorrect';
           this.loading = false;
         } else {
-          this.router.navigate(['/rooms']);
+          this.router.navigate(['/caselist']);
         }
       });
   }

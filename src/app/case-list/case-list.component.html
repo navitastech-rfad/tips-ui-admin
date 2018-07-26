@@ -1,0 +1,34 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="caseId">
+    <th mat-header-cell *matHeaderCellDef> CaseId </th>
+    <td mat-cell *matCellDef="let case"> {{case.caseId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef> FirstName </th>
+    <td mat-cell *matCellDef="let case"> {{case.firstName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> LastName </th>
+    <td mat-cell *matCellDef="let case"> {{case.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let case"> {{case.address}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="assigneeId">
+    <th mat-header-cell *matHeaderCellDef> AssigneeId </th>
+    <td mat-cell *matCellDef="let case"> {{case.assigneeId}} </td>
+  </ng-container> 
+
+  <tr mat-header-row *matHeaderRowDef="assigneeId"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
