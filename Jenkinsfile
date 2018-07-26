@@ -33,7 +33,10 @@ pipeline {
                     branchName = gitBranchName()
                     ispr = isGitPRBranch()
                       echo "${repoUrl} ${branchName} ${ispr}"
-                      sh "source ~/.bash_profile; nvm install 10.7.0; nvm use 10.7.0; npm install"
+                      sh "source ~/.bash_profile"
+                      sh "nvm install 10.7.0"
+                      sh "nvm use 10.7.0"
+                      sh "npm install"
 
                 }
 
