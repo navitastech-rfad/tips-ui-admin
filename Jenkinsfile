@@ -2,17 +2,17 @@ pipeline {
     agent any
 
     options {
-        skipDefaultCheckout() 
-        timeout(time: 10, unit: 'MINUTES') 
-        timestamps() 
-        
+        skipDefaultCheckout()
+        timeout(time: 10, unit: 'MINUTES')
+        timestamps()
+
     }
-    
-    
+
+
 
     stages {
-        
-        
+
+
 
       stage('Checkout') {
             steps {
@@ -24,11 +24,16 @@ pipeline {
         stage('Build') {
             steps {
 
-                
+
                 echo 'Build'
                 script {
-                    sh 'printenv'
-                  
+
+
+                    repoUrl= gitRepoURL()
+                    branchName = gitBranchName()
+                    ispr = isGitPRBranch()
+                      echo "${repoUrl} ${branchName} ${ispr}"
+                      sh 'npm install'
                 }
 
             }
@@ -39,75 +44,51 @@ pipeline {
                  parallel(
                         "UnitTest ": {
                             echo 'Run Units tests'
-                                 
+
                         },
                          "Security Test ": {
                             echo 'Run integration testing'
                         }
-                        
-                )
-            }
-        }         
 
-        stage('Static Code Analysis') {
-            steps {
-               
-                parallel(
-                            "Lint  ": {
-                            echo 'Run Lint'
-                                    
-                            
-                        },
-                        "PMD ": {
-                            echo 'Run PMD'
-                                    
-                            
-                        },
-                         "CheckStyle ": {
-                              echo 'Run CheckStyle'
-                                    
-                        },
-                         "FindBugs ": {
-
-                             echo 'Run FindBugs'
-                                    
-                        },
-                        "Sonar Scan": {
-                                     echo 'Sonar Scan'
-                        }
-                        
                 )
             }
         }
 
+
+
         stage('Build Docker') {
             when {
-                branch 'develop'
+                branch 'master'
             }
             steps {
-                echo 'Build Docker Image'
+                sh 'docker build . -t 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER}'
+                sh 'docker tag 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER} 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:latest'
+                sh '/home/jenkins/ecr-login.sh | /bin/bash '
+                sh 'docker push 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER}'
+                sh 'docker push 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:latest'
             }
         }
 
         stage('Dev Deploy') {
 
                 when {
-                branch 'develop'
+                branch 'master'
             }
 
             steps {
-                echo 'Deploy DEV'
-                echo 'Sanity Checks'
+
+               sh 'ecs-deploy  -c DevCluster1 -n rfadui -i 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER} -r us-east-1 -t 180'
+
             }
-        
+
         }
 
         stage('DEV Test') {
             when {
-                branch 'develop'
+                branch 'master'
             }
             steps {
-                         
+
                 parallel(
                         "Integration Test ": {
                             echo 'Run integration tests'
@@ -115,26 +96,26 @@ pipeline {
                          "Functional Test ": {
                             echo 'Run integration tests'
                         }
-                        
+
                 )
             }
         }
 
          stage('QA deploy') {
              when {
-                branch 'develop'
+                branch 'master'
             }
-           
+
             steps {
                 echo 'Deploy QA'
                 echo 'Sanity Checks'
             }
-        
+
         }
 
         stage('QA Functional Tests') {
             when {
-                branch 'develop'
+                branch 'master'
             }
             steps {
                 echo 'Unit Test'
@@ -144,16 +125,16 @@ pipeline {
 
          stage('Performance TEST') {
             when {
-                branch 'develop'
+                branch 'master'
             }
             steps {
                 echo 'Deploy QA'
                 echo 'Sanity Checks'
             }
-        
+
         }
 
-           
+
         stage('Deploy Stage') {
            when {
                 branch 'master'
@@ -164,23 +145,33 @@ pipeline {
             }
         }
     }
-    post { 
-        always { 
+    post {
+        always {
             echo 'Always'
-            
+
+
         }
 
-        failure { 
+        failure {
             echo 'Failed'
+
         }
 
-        success { 
+        success {
             echo 'Success!'
 
-                 
+                script {
+                    if (isGitPRBranch()) {
+
+
+                            sendSlackNotification("SUCCESS","",true)
+
+                            }
+                }
+
         }
 
-        unstable { 
+        unstable {
             echo 'Unstable'
         }
 
