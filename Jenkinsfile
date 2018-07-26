@@ -33,6 +33,8 @@ pipeline {
                     branchName = gitBranchName()
                     ispr = isGitPRBranch()
                       echo "${repoUrl} ${branchName} ${ispr}"
+                      sh "nvm install 10.7.0"
+                      sh "nvm use 10.7.0"
                       sh 'npm install'
                 }
 
