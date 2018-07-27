@@ -16,13 +16,13 @@ export class UserService {
         private authenticationService: AuthenticationService) {
     }
 
-    getUsers(): Observable<User[]> {
+    getCases(): Observable<User[]> {
         // add authorization header with jwt token
         const headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
         const options = new RequestOptions({ headers: headers });
 
         // get users from api
-        return this.http.get(userApiUrl + 'api/data/persons', options)
+        return this.http.get('../assets/data.json', options)
             .map((response: Response) => response.json()._embedded.persons);
     }
     createUser(newUser: any): Observable<User> {

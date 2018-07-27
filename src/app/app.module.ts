@@ -18,6 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 // import { MatCheckboxModule } from '@angular/material/checkbox';
 // import { MatExpansionModule } from '@angular/material/expansion';
@@ -68,6 +70,7 @@ import { CaseListComponent } from './case-list/case-list.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
+    HttpClientModule,
     // MatCheckboxModule,
     MatDialogModule,
     // MatExpansionModule,
