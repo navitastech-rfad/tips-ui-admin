@@ -12,6 +12,8 @@ import { CaseListComponent } from './case-list/case-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginpageComponent },
+  { path: '', component: LoginpageComponent },
+
   { path: 'caselist', component: CaseListComponent},
 
   // { path: '', component: ViewConferenceRoomsComponent, canActivate: [AuthGuard]},
