@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AlertService } from '../_services';
 import { AuthenticationService } from '../_services/authentication.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   moduleId: module.id,
@@ -16,7 +17,7 @@ export class LoginpageComponent implements OnInit {
   error = '';
 
   constructor(private router: Router,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService, private alertService: AlertService) { }
 
   ngOnInit() {
     // reset login status
@@ -26,13 +27,22 @@ export class LoginpageComponent implements OnInit {
   login() {
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password)
-      .subscribe(result => {
+   .pipe(first())
+      .subscribe( result => {
         if (!result.role || 0 === result.role.length) {
+          console.log('%%%%%%%%%%: ' + JSON.stringify(result));
+
           this.error = 'Username or password is incorrect';
           this.loading = false;
         } else {
+          console.log('************: ' + JSON.stringify(result));
           this.router.navigate(['/caselist']);
         }
-      });
+
+      },
+        error => {
+          this.alertService.error('Login Failed!! Try again with correct Username/Password');
+          this.loading = false;
+        });
   }
 }

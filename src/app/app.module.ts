@@ -2,14 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule, MatCardModule, MatButtonModule,
+import { AuthGuard } from './_guards';
+import {
+  MatDialogModule, MatCardModule, MatButtonModule,
   MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule,
-  MatOptionModule, MatSelectModule } from '@angular/material';
+  MatOptionModule, MatSelectModule
+} from '@angular/material';
 import { DatePipe } from '@angular/common';
 
 import {
   ReactiveFormsModule
 } from '@angular/forms';
+
+// used to create fake backend
 
 // import { AdminComponent } from './admin/admin.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,8 +22,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
+import { AlertComponent } from './_directives';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 // import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -28,10 +34,13 @@ import { HttpClientModule } from '@angular/common/http';
 // import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 // import { MatTooltipModule } from '@angular/material/tooltip';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { FakeBackendInterceptor, fakeBackendProvider} from './_helpers/fake-backend';
 
 import { UserService } from './_services/user.service';
-import { AuthenticationService} from './_services/authentication.service';
+import { AuthenticationService } from './_services/authentication.service';
 import { ConferenceRoomService } from './_services/conference-room.service';
+import { AlertService } from './_services/alert.service';
 import { ReserveConferenceRoomService } from './_services/reserve-conference-room.service';
 
 // import { AuthGuard } from './_guards/index';
@@ -51,7 +60,9 @@ import { CaseListComponent } from './case-list/case-list.component';
     FooterComponent,
     LoginpageComponent,
     PanelComponent,
-    CaseListComponent
+    CaseListComponent,
+    AlertComponent
+
     // NewUserModalComponent,
     // ViewConferenceRoomsComponent,
     // AdminRoomsComponent,
@@ -89,13 +100,18 @@ import { CaseListComponent } from './case-list/case-list.component';
     // ReserveConferenceRoomComponent
   ],
   providers: [
-        // AuthGuard,
-        AuthenticationService,  // providers used to create fake backend
-        UserService,
-        ConferenceRoomService,
-        ReserveConferenceRoomService,
-        DatePipe
-      ],
+    AuthGuard,
+    AuthenticationService,  // providers used to create fake backend
+    UserService,
+    AlertService,
+    ConferenceRoomService,
+    ReserveConferenceRoomService,
+    DatePipe,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    FakeBackendInterceptor,
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
