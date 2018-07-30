@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { CaseListComponent } from './case-list/case-list.component';
-// import { AuthGuard } from './_guards/index';
+import { AuthGuard } from './_guards/index';
 // import { AdminComponent } from './admin/admin.component';
 // import { PanelComponent } from './panel/panel.component';
 // import { ViewConferenceRoomsComponent} from './view-conference-rooms/view-conference-rooms.component';
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginpageComponent },
   { path: '', component: LoginpageComponent },
 
-  { path: 'caselist', component: CaseListComponent},
+  { path: 'caselist', component: CaseListComponent,  canActivate: [AuthGuard]},
 
   // { path: '', component: ViewConferenceRoomsComponent, canActivate: [AuthGuard]},
   // { path: 'panels/:id', component: PanelComponent},

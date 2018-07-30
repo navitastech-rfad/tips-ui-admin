@@ -10,6 +10,7 @@ import { AuthenticationService } from '../_services/authentication.service';
 })
 export class NavbarComponent implements OnInit, DoCheck {
   title = 'ODOS Demo App';
+  userNameForDisplay: string;
   nav_hide: boolean;
   role: string;
   constructor(private location: Location, private router: Router, private authenticationService: AuthenticationService) { }
@@ -25,6 +26,12 @@ export class NavbarComponent implements OnInit, DoCheck {
       }
       // console.log(this.location.path(),this.nav_hide)
     });
+
+    if (localStorage.getItem('currentUser')) {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.userNameForDisplay = currentUser.firstName + ', ' +  currentUser.lastName;
+      // console.log(this.role);
+    }
   }
   ngDoCheck() {
     if (localStorage.getItem('currentUser')) {

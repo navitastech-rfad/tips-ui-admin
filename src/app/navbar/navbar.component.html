@@ -47,10 +47,11 @@
           aria-label="Home">
           RFAD
         </a>
-        </em>
+        <button class="usa-menu-btn" [hidden]=nav_hide  (click)="logout()">Logout</button>
+      </em>
+        <span><h2>Welcome {{userNameForDisplay}}</h2> </span>
       </div>
-      <button class="usa-menu-btn" [hidden]=nav_hide>Menu</button>
-    </div>
+  </div>
     <nav role="navigation" class="usa-nav" [hidden]=nav_hide>
       <button class="usa-nav-close">
       <img src="/assets/uswds/img/close.svg" alt="close">
@@ -58,7 +59,7 @@
       <ul class="usa-nav-primary usa-accordion">
         <li *ngIf="role == 'Administrator' || role == 'Reservation Manager'">
           <a class="usa-nav-link" href="/rooms">
-          <span>Rooms</span>
+          <span>All Cases</span>
           </a>
         </li>
         <li *ngIf="role == 'Administrator' || role == 'Reservation Manager'">

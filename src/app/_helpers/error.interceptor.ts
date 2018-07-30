@@ -17,7 +17,9 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.authenticationService.logout();
                 location.reload(true);
             } else if (err.status === 403) {
+                location.reload(false);
                 return throwError({ error: { message: 'Username or password is incorrect' } });
+
             }
             const error = err.error.message || err.statusText;
             console.log('==== ' + error + '====');
