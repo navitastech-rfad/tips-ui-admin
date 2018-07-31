@@ -6,7 +6,7 @@ import { Case } from '../_models/case.model';
   providedIn: 'root'
 })
 export class CaseListService {
-  API_URL  =  '../assets/data.json';
+  API_URL  =  '../assets/case.json';
   constructor(
     private  httpClient:  HttpClient,
     // private authenticationService: AuthenticationService
