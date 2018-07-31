@@ -1,0 +1,58 @@
+[
+   {
+       "caseId": 10001,
+       "caseTitle": "Case-1004845",
+       "benefitApplied": "ABC123",
+       "createdBy": "9ac29811-a6f8-42f4-806a-dea2cb5c1260",
+       "updatedBy": "9ac29811-a6f8-42f4-806a-dea2cb5c1260",
+       "firstName": "Amanda",
+       "lastName": "Manson",
+       "city": "Alexandria",
+       "address": "12300 Tesson Close",
+       "state": "VA",
+       "createdDate": "2018-07-28T15:39:02.542+0000",
+       "updatedDate": "2018-07-28T15:39:02.542+0000"
+   },
+   {
+       "caseId": 10002,
+       "caseTitle": "Case-9274400",
+       "benefitApplied": "DEF345",
+       "createdBy": "7ac8b1e8-0f8e-40f1-9a73-a66b82ec9c67",
+       "updatedBy": "7ac8b1e8-0f8e-40f1-9a73-a66b82ec9c67",
+       "firstName": "Peter",
+       "lastName": "Brown",
+       "city": "Washington",
+       "address": "1990 K-Street NW",
+       "state": "DC",
+       "createdDate": "2018-07-28T15:39:18.652+0000",
+       "updatedDate": "2018-07-28T15:39:18.652+0000"
+   },
+   {
+       "caseId": 10003,
+       "caseTitle": "Case-3454798",
+       "benefitApplied": "GHI876",
+       "createdBy": "47c504f4-adbc-4648-8ec7-f122ffa25062",
+       "updatedBy": "47c504f4-adbc-4648-8ec7-f122ffa25062",
+       "firstName": "James",
+       "lastName": "Smith",
+       "city": "San Jose",
+       "address": "Fremont Drive",
+       "state": "CA",
+       "createdDate": "2018-07-28T15:39:25.975+0000",
+       "updatedDate": "2018-07-28T15:39:25.975+0000"
+   },
+   {
+       "caseId": 10004,
+       "caseTitle": "Case-5644820",
+       "benefitApplied": "MOP321",
+       "createdBy": "33a072b6-135a-47ac-bfe1-f01abc2fa1fd",
+       "updatedBy": "33a072b6-135a-47ac-bfe1-f01abc2fa1fd",
+       "firstName": "Rose",
+       "lastName": "Avita",
+       "city": "Fredricks",
+       "address": "67700 Lake Drive",
+       "state": "MD",
+       "createdDate": "2018-07-28T15:39:37.511+0000",
+       "updatedDate": "2018-07-28T15:39:37.511+0000"
+   }
+]
