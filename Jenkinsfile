@@ -81,7 +81,7 @@ pipeline {
 
             steps {
 
-               sh 'ecs-deploy  -c DevAppCluster -n rfadui -i 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER} -r us-east-1 -t 180'
+               sh 'ecs-deploy  -c DevAppCluster -n rfadui -i 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER} -r us-east-1 -t 480'
 
             }
 
@@ -158,6 +158,14 @@ pipeline {
 
         failure {
             echo 'Failed'
+            script {
+                    
+
+
+                            sendSlackNotification("FAILED","",true)
+
+                            
+                }
 
         }
 
@@ -165,18 +173,26 @@ pipeline {
             echo 'Success!'
 
                 script {
-                    if (isGitPRBranch()) {
+                    
 
 
                             sendSlackNotification("SUCCESS","",true)
 
-                            }
+                            
                 }
 
         }
 
         unstable {
             echo 'Unstable'
+          script {
+                    
+
+
+                            sendSlackNotification("UNSTABLE","",true)
+
+                            
+                }
         }
 
     }
