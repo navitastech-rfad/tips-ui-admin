@@ -20,5 +20,7 @@ RUN npm install
 # add app
 COPY . /usr/src/app
 
+EXPOSE 4200
+
 # start app
-CMD ng serve --host 0.0.0.0
+CMD ng serve --host 0.0.0.0 --disable-host-check
