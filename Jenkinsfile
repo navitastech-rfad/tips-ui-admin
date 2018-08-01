@@ -81,7 +81,7 @@ pipeline {
 
             steps {
 
-               sh 'ecs-deploy  -c DevAppCluster -n rfadui -i 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER} -r us-east-1 -t 480'
+               sh 'ecs-deploy  -c DevAppCluster -n rfadui -i 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER} -r us-east-1 -t 480 --skip-deployments-check'
 
             }
 
