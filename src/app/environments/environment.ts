@@ -7,5 +7,6 @@ export const environment = {
   production: true,
   apiUrl: 'http://localhost:8080/',
   // userApiUrl: 'http://localhost:8090/',
-  userApiUrl: 'http://localhost:8180/'
+  userApiUrl: 'http://localhost:8180/',
+  caseApiUrl: 'http://localhost:8280/'
 };

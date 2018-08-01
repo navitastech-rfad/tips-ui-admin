@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { CaseListComponent } from './case-list/case-list.component';
-import { AuthGuard } from './_guards/index';
+import { AuthGuard } from './_guards';
+import { CaseDetailsComponent } from './case-details/case-details.component';
 // import { AdminComponent } from './admin/admin.component';
 // import { PanelComponent } from './panel/panel.component';
 // import { ViewConferenceRoomsComponent} from './view-conference-rooms/view-conference-rooms.component';
@@ -11,10 +12,13 @@ import { AuthGuard } from './_guards/index';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginpageComponent },
-  { path: '', component: LoginpageComponent },
+    { path: 'login', component: LoginpageComponent },
+    { path: '', component: LoginpageComponent },
 
-  { path: 'caselist', component: CaseListComponent,  canActivate: [AuthGuard]},
+    // { path: 'caselist', component: CaseListComponent,  canActivate: [AuthGuard]},
+    { path: 'caselist', component: CaseListComponent },
+    { path: 'casedetails', component: CaseDetailsComponent },
+
 
   // { path: '', component: ViewConferenceRoomsComponent, canActivate: [AuthGuard]},
   // { path: 'panels/:id', component: PanelComponent},

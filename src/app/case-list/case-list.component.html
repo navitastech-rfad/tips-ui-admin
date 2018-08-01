@@ -6,7 +6,7 @@
   <tr>
       <th>Case Id</th>
   </tr>
-  <tr *ngFor="let case of cases">
+  <tr *ngFor="let case of cases" (click)="goToCaseDetails($event, case)">
       <td> {{ case.caseTitle }}</td>
   </tr>
   </table>

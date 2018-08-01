@@ -1,7 +1,7 @@
 import { environment } from '../environments/environment';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { AuthenticationService } from '../_services/authentication.service';
+import { AuthenticationService } from './authentication.service';
 import { Reservation } from '../_models/reservation';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';

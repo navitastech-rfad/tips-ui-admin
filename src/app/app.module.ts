@@ -42,10 +42,12 @@ import { AuthenticationService } from './_services/authentication.service';
 import { ConferenceRoomService } from './_services/conference-room.service';
 import { AlertService } from './_services/alert.service';
 import { ReserveConferenceRoomService } from './_services/reserve-conference-room.service';
+import { CaseDetailServiceService } from './_services/case-detail-service.service';
 
 // import { AuthGuard } from './_guards/index';
 import { PanelComponent } from './panel/panel.component';
 import { CaseListComponent } from './case-list/case-list.component';
+import { CaseDetailsComponent } from './case-details/case-details.component';
 // import { NewUserModalComponent } from './admin-modal/new-user-modal.component';
 // import { ViewConferenceRoomsComponent } from './view-conference-rooms/view-conference-rooms.component';
 // import { AdminRoomsComponent } from './admin-rooms/admin-rooms.component';
@@ -61,7 +63,8 @@ import { CaseListComponent } from './case-list/case-list.component';
     LoginpageComponent,
     PanelComponent,
     CaseListComponent,
-    AlertComponent
+    AlertComponent,
+    CaseDetailsComponent
 
     // NewUserModalComponent,
     // ViewConferenceRoomsComponent,
@@ -106,6 +109,7 @@ import { CaseListComponent } from './case-list/case-list.component';
     AlertService,
     ConferenceRoomService,
     ReserveConferenceRoomService,
+    CaseDetailServiceService,
     DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

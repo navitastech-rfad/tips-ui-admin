@@ -5,7 +5,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { AuthenticationService } from '../_services/authentication.service';
+import { AuthenticationService } from './authentication.service';
 
 const API_URL = environment.apiUrl;
 

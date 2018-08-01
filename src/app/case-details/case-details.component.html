@@ -1,0 +1,17 @@
+<h1>
+  My Cases
+  </h1>
+  <div>
+  <table  style="width:50%" id="cases">
+  <tr>
+      <th>Case Id</th>
+  </tr>
+  <tr *ngFor="let case of cases">
+      <td> Case Title: {{ case.caseTitle }}</td>
+      <td> Benefit Applied: {{ case.benefitApplied }}</td>
+      <td> First Name: {{ case.firstName }}</td>
+      <td> Last Name: {{ case.lastName }}</td>
+      <td> Address: {{ case.Address }}</td>
+  </tr>
+  </table>
+  </div>
