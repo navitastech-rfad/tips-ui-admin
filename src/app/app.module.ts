@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './_guards';
 import {
@@ -48,6 +49,7 @@ import { CaseDetailServiceService } from './_services/case-detail-service.servic
 import { PanelComponent } from './panel/panel.component';
 import { CaseListComponent } from './case-list/case-list.component';
 import { CaseDetailsComponent } from './case-details/case-details.component';
+import { initializer} from './app-init';
 // import { NewUserModalComponent } from './admin-modal/new-user-modal.component';
 // import { ViewConferenceRoomsComponent } from './view-conference-rooms/view-conference-rooms.component';
 // import { AdminRoomsComponent } from './admin-rooms/admin-rooms.component';
@@ -85,7 +87,7 @@ import { CaseDetailsComponent } from './case-details/case-details.component';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    // MatCheckboxModule,
+    KeycloakAngularModule,
     MatDialogModule,
     // MatExpansionModule,
     MatFormFieldModule,
@@ -111,8 +113,9 @@ import { CaseDetailsComponent } from './case-details/case-details.component';
     ReserveConferenceRoomService,
     CaseDetailServiceService,
     DatePipe,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor,   multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: APP_INITIALIZER,   useFactory: initializer,    multi: true,  deps: [KeycloakService] },
     FakeBackendInterceptor,
     fakeBackendProvider
   ],

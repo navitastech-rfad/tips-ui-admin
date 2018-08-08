@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  KEYCLOAK_URL: 'http://localhost:8080/auth',
+  KEYCLOAK_REALM: 'Dev-Realm',
+  KEYCLOAK_CLIENTID: 'tutorial-frontend',
+  BACKEND_URL: 'http://localhost:8000'
+ };
 
 /*
  * In development mode, to ignore zone related error stack frames such as

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 
-const userApiUrl = environment.userApiUrl;
+const userApiUrl = environment.KEYCLOAK_URL;
 
 @Injectable()
 export class AuthenticationService {

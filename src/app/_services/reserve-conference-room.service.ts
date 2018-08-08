@@ -6,7 +6,7 @@ import { Reservation } from '../_models/reservation';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 
-const API_URL = environment.apiUrl;
+const API_URL = environment.userApiUrl;
 
 
 @Injectable()

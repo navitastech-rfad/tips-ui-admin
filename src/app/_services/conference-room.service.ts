@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { AuthenticationService } from './authentication.service';
 
-const API_URL = environment.apiUrl;
+const API_URL = environment.userApiUrl;
 
 @Injectable()
 export class ConferenceRoomService {
