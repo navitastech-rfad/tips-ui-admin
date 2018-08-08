@@ -4,6 +4,7 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { CaseListComponent } from './case-list/case-list.component';
 import { AuthGuard } from './_guards';
 import { CaseDetailsComponent } from './case-details/case-details.component';
+import { FraudReportsComponent } from './fraud-reports/fraud-reports.component';
 // import { AdminComponent } from './admin/admin.component';
 // import { PanelComponent } from './panel/panel.component';
 // import { ViewConferenceRoomsComponent} from './view-conference-rooms/view-conference-rooms.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
     // { path: 'caselist', component: CaseListComponent,  canActivate: [AuthGuard]},
     { path: 'caselist', component: CaseListComponent },
     { path: 'casedetails', component: CaseDetailsComponent },
+    { path: 'fraudreports', component: FraudReportsComponent },
 
 
   // { path: '', component: ViewConferenceRoomsComponent, canActivate: [AuthGuard]},

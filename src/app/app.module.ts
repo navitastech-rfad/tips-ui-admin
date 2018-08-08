@@ -49,7 +49,11 @@ import { CaseDetailServiceService } from './_services/case-detail-service.servic
 import { PanelComponent } from './panel/panel.component';
 import { CaseListComponent } from './case-list/case-list.component';
 import { CaseDetailsComponent } from './case-details/case-details.component';
+<<<<<<< HEAD
 import { initializer} from './app-init';
+=======
+import { FraudReportsComponent } from './fraud-reports/fraud-reports.component';
+>>>>>>> 16179748748a4a9e08808a28cce4c9d0a87850ba
 // import { NewUserModalComponent } from './admin-modal/new-user-modal.component';
 // import { ViewConferenceRoomsComponent } from './view-conference-rooms/view-conference-rooms.component';
 // import { AdminRoomsComponent } from './admin-rooms/admin-rooms.component';
@@ -66,7 +70,8 @@ import { initializer} from './app-init';
     PanelComponent,
     CaseListComponent,
     AlertComponent,
-    CaseDetailsComponent
+    CaseDetailsComponent,
+    FraudReportsComponent
 
     // NewUserModalComponent,
     // ViewConferenceRoomsComponent,

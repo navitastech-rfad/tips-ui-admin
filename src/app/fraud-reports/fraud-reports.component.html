@@ -1,0 +1,21 @@
+<h1>
+    Reports of Fraud
+</h1>
+<div>
+    <table style="width:50%" id="reports">
+        <tr>
+            <th>Case</th>
+            <th>Entity</th>
+            <th>Status</th>
+        </tr>
+        <tr *ngFor="let report of reports" (click)="goToCaseDetails($event, case)">
+            <td> {{ report.id }}</td>
+            <td> {{ report.entity }}</td>
+            <td> {{ report.status }}</td>
+            <td>
+                <input type="submit" (click)="viewCase()" value="View Case">
+            </td>
+        </tr>
+    </table>
+
+</div>
