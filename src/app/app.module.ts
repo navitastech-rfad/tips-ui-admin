@@ -48,6 +48,7 @@ import { CaseDetailServiceService } from './_services/case-detail-service.servic
 import { PanelComponent } from './panel/panel.component';
 import { CaseListComponent } from './case-list/case-list.component';
 import { CaseDetailsComponent } from './case-details/case-details.component';
+import { FraudReportsComponent } from './fraud-reports/fraud-reports.component';
 // import { NewUserModalComponent } from './admin-modal/new-user-modal.component';
 // import { ViewConferenceRoomsComponent } from './view-conference-rooms/view-conference-rooms.component';
 // import { AdminRoomsComponent } from './admin-rooms/admin-rooms.component';
@@ -64,7 +65,8 @@ import { CaseDetailsComponent } from './case-details/case-details.component';
     PanelComponent,
     CaseListComponent,
     AlertComponent,
-    CaseDetailsComponent
+    CaseDetailsComponent,
+    FraudReportsComponent
 
     // NewUserModalComponent,
     // ViewConferenceRoomsComponent,
