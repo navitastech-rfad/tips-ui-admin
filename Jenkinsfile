@@ -65,11 +65,11 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                sh 'docker build . -t 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER}'
-                sh 'docker tag 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER} 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:latest'
+                sh 'docker build . -t 550522744793.dkr.ecr.us-east-1.amazonaws.com/tipsui:${BUILD_NUMBER}'
+                sh 'docker tag 550522744793.dkr.ecr.us-east-1.amazonaws.com/tipsui:${BUILD_NUMBER} 550522744793.dkr.ecr.us-east-1.amazonaws.com/tipsui:latest'
                 sh '/home/jenkins/ecr-login.sh | /bin/bash '
-                sh 'docker push 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER}'
-                sh 'docker push 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:latest'
+                sh 'docker push 550522744793.dkr.ecr.us-east-1.amazonaws.com/tipsui:${BUILD_NUMBER}'
+                sh 'docker push 550522744793.dkr.ecr.us-east-1.amazonaws.com/tipsui:latest'
             }
         }
 
@@ -81,7 +81,7 @@ pipeline {
 
             steps {
 
-               sh 'ecs-deploy  -c DevAppCluster -n rfadui -i 550522744793.dkr.ecr.us-east-1.amazonaws.com/rfadui:${BUILD_NUMBER} -r us-east-1 -t 480 --skip-deployments-check'
+               sh 'ecs-deploy  -c tipsui -n tipsui -i 550522744793.dkr.ecr.us-east-1.amazonaws.com/tipsui:${BUILD_NUMBER} -r us-east-1 -t 480 --skip-deployments-check'
 
             }
 
